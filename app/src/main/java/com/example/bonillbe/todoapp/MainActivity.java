@@ -1,9 +1,12 @@
 package com.example.bonillbe.todoapp;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements TodoListAdapter.L
     private ArrayAdapter<String> itemsAdapter;
     private ListView lvItems;
     private EditText etNewItem;
+    private FloatingActionButton mAddToDoItemFAB;
 
     private ItemListController listController;
 
@@ -37,7 +41,9 @@ public class MainActivity extends AppCompatActivity implements TodoListAdapter.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //lvItems = (ListView) findViewById(R.id.rcItem);
-        etNewItem = (EditText) findViewById(R.id.etNewItem);
+        //etNewItem = (EditText) findViewById(R.id.etNewItem);
+        mAddToDoItemFAB = (FloatingActionButton)findViewById(R.id.addToDoItemFAB);
+
         listController = new ItemListController(this);
         items = listController.getmItems();
         //items.add("First Item");
@@ -47,6 +53,27 @@ public class MainActivity extends AppCompatActivity implements TodoListAdapter.L
 
         mTodoList.setAdapter(mAdapter);
         mTodoList.setLayoutManager(new LinearLayoutManager(this));
+
+
+        mAddToDoItemFAB.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("deprecation")
+            @Override
+            public void onClick(View v) {
+//                app.send(this, "Action", "FAB pressed");
+//                Intent newTodo = new Intent(MainActivity.this, AddToDoActivity.class);
+//                ToDoItem item = new ToDoItem("", false, null);
+//                int color = ColorGenerator.MATERIAL.getRandomColor();
+//                item.setTodoColor(color);
+//                newTodo.putExtra(TODOITEM, item);
+//                startActivityForResult(newTodo, REQUEST_ID_TODO_ITEM);
+
+                Intent newTodo = new Intent(MainActivity.this, AddToDoActivity.class);
+
+                startActivity(newTodo);
+
+                //Log.d("Main", "onClick: FAB");
+            }
+        });
 
 
 

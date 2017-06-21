@@ -9,34 +9,54 @@
     android:focusableInTouchMode="true">
 
 
-
-
-    <Button
-        android:layout_alignParentBottom="true"
-        android:id="@+id/btnAddItem"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add"
-        android:onClick="addTodoItem">
-    </Button>
-
-    <EditText
-        android:id="@+id/etNewItem"
-        android:layout_width="fill_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/btnAddItem"
-        android:layout_height="wrap_content">
-    </EditText>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcItem"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/myCoordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/etNewItem"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
+        android:gravity="center"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addToDoItemFAB"
+            android:src="@drawable/ic_add_white_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_anchor="@id/rcItem"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_behavior="com.example.bonillbe.todoapp.ScrollAwareFABBehavior"
+            android:clickable="true"
+            />
+    </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+    <!--<Button-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:id="@+id/btnAddItem"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="add"-->
+        <!--android:onClick="addTodoItem">-->
+    <!--</Button>-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/etNewItem"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_toLeftOf="@id/btnAddItem"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--</EditText>-->
 
 
 
